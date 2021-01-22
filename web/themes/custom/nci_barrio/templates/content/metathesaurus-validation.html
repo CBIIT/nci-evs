@@ -3,7 +3,6 @@
  <title>NCI Metathesaurus License Validation and Data File Download</title>
  <meta http-equiv="content-type" content="application/x-www-form-urlencoded; charset=iso-8859-1">
  <style>
-/*	 
 #logos {height:43px; background-color:#A90101;}
 #logos #left {float:left;}
 #logos #right {height:43px; float:right;}
@@ -14,8 +13,7 @@
 #portal-footer a:visited {color: #333333;}
 #portal-footer a:hover {text-decoration: underline;}
 .footerLinks {padding: .5em 0em 0em 0em;}
-body {background-image:url(''); background-repeat:repeat-x; font-family: Arial, Helvetica, sans-serif; font-size:80%; color:#444; margin: 0px; line-height:1.3em;} 
-.node__content {background-image:url(''); background-repeat:repeat-x; font-family: Arial, Helvetica, sans-serif; font-size:80%; color:#444; margin: 0px; line-height:1.3em;}
+body {background-image:url(''); background-repeat:repeat-x; font-family: Arial, Helvetica, sans-serif; font-size:80%; color:#444; margin: 0px; line-height:1.3em;}
 a:link {color:#0C5C97;}
 a:visited {color: #0C5C97;}
 h1, h2 {color: #0C5C97; font-size:165%;}
@@ -28,8 +26,7 @@ dl.portlet {margin: 1em 0 0 0em; font-size: 80%; border: 1px solid #EEE; width:2
 .portletHeader {padding: 0.42em 1em; background: #ddd; line-height: normal; font-weight:bold;}
 dl.portlet a:link {color:#0C5C97;}
 dl.portlet a:visited {color: #0C5C97;}
-dl.portlet a:hover {color: #0C5C97 !important; 
-*/
+dl.portlet a:hover {color: #0C5C97 !important; /* This one gets an !important because it should always activate in the content area, even when state coloring is active */}
 dd.portletItem {margin: 0; padding: 0 0 0.5em 1em;}
 
 </style>
@@ -85,16 +82,15 @@ dd.portletItem {margin: 0; padding: 0 0 0.5em 1em;}
 				    document.location.href='UMLSServlet?ticket='+ticket
 				  }
 			});
+
 		});
 
 	</script>
 </head>
 
 <body>
-	
-	<span property="schema:name" class="field field--name-title field--type-string field--label-hidden">Metathesaurus Downloads - Remove This</span>
 
-<p>Left NCI Metathesaurus (NCIm) is built on top of a subset of the NLM's UMLS Metathesaurus, use of which is restricted under
+<p>NCI Metathesaurus (NCIm) is built on top of a subset of the NLM's UMLS Metathesaurus, use of which is restricted under
 the UMLS license agreement.  Your UMLS credentials will be validated in this page prior to downloading the NCIm RRF
 data files.  To download other files associated with the NCIm (e.g. documentation, MetamorphoSys), or if you do not
 currently have a UMLS account or license, please return to the main <a href="../metathesaurus-downloads" target="_parent">NCI Metathesaurus Downloads</a>
