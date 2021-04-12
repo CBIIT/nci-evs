@@ -1,12 +1,16 @@
 #For EVS
 shopt -s expand_aliases
-PATH=$path:/usr/bin:/usr/local/bin
+#export PATH=/usr/bin
+
+composer --version
+
 
 alias phpm="php -d memory_limit=-1"
 #alias composerm="/usr/bin/composer"
 
 echo "**** composer outdated 'drupal/*'  BEFORE"
 phpm /usr/bin/composer outdated "drupal/*"
+
 
 echo "*** CLEAN UP DATABASE"
 echo "*** Remove unnecessary TABLES for DB"
@@ -16,6 +20,7 @@ echo "SEARCH_TERM = $SEARCH_TERM"
 echo "**** EXECUTE THESE COMMANDS AT THE COMMAND LINE"
 mysql --user=$username --password=$password --database=$database --host=$host --port=$port -A -e "show tables;" -s |egrep "^$SEARCH_TERM" |xargs -I "@@" echo mysql --user=$username --password=$password --database=$database --host=$host --port=$port -A -e "DROP TABLE @@"
 mysql --user=$username --password=$password --database=$database --host=$host --port=$port -A -e "show tables;" -s |egrep "^$SEARCH_TERM" |xargs -I "@@" mysql --user=$username --password=$password --database=$database --host=$host --port=$port -A -e "DROP TABLE @@"
+
 
 SEARCH_TERM="tmp_"
 echo "SEARCH_TERM = $SEARCH_TERM"
@@ -35,6 +40,10 @@ echo "**** EXECUTE THESE COMMANDS AT THE COMMAND LINE"
 mysql --user=$username --password=$password --database=$database --host=$host --port=$port -A -e "show tables;" -s |egrep "^$SEARCH_TERM" |xargs -I "@@" echo mysql --user=$username --password=$password --database=$database --host=$host --port=$port -A -e "DROP TABLE @@"
 mysql --user=$username --password=$password --database=$database --host=$host --port=$port -A -e "show tables;" -s |egrep "^$SEARCH_TERM" |xargs -I "@@" mysql --user=$username --password=$password --database=$database --host=$host --port=$port -A -e "DROP TABLE @@"
 
+echo "*** Install devel_entity_updates"
+phpm /usr/bin/composer require drupal/devel_entity_updates
+drush pm-enable devel_entity_updates -y
+
 drush entup -y
 drush updatedb -y
 drush updatedb-status
@@ -45,7 +54,7 @@ drush pm-uninstall backup_migrate
 drush pm-enable backup_migrate -y
 
 echo "*** Uninstall Migrate Plus"
-#drush pm-uninstall migrate_plus
+drush pm-uninstall migrate_plus
 #Remove the system.schema for migrate_plus
 drush php-eval "\Drupal::keyValue('system.schema')->delete('migrate_plus');"
 
@@ -74,14 +83,29 @@ phpm /usr/bin/composer require drupal/core:^8.9 webflo/drupal-core-require-dev:^
 drush entup -y
 drush updatedb -y
 
-
 echo "*** STEP 3: Update all modules"
 phpm /usr/bin/composer update
 drush entup -y
 drush updatedb -y
 drush cr
 
+echo "*** STEP 4: Update some other modules stuck"
+phpm /usr/bin/composer require drupal/devel:^4 drupal/backup_migrate:^5 drupal/imce:^5 drupal/imce:^2 drupal/admin_toolbar:^3 drupal/ldap:^4 drupal:ldap_servers:^4 drupal/bootstrap_barrio:^5
+drush entup -y
+drush updatedb -y
+drush cr
 
+# NEW Modules
+
+phpm /usr/bin/composer require drush/drush:^10 drupal/drupalmoduleupgrader drupal/config_filter drupal/config_split
+drush entup -y
+drush updatedb -y
+drush cr
+
+phpm /usr/bin/composer require drupal/ldap:^4 drupal:ldap_servers:^4
+drush entup -y
+drush updatedb -y
+drush cr
 
 echo "*** Get rid of path_alias path_alias issue"
 drush ev '$definition_update_manager=\Drupal::entityDefinitionUpdateManager();$definition_update_manager->updateEntityType(\Drupal::entityTypeManager()->getDefinition("path_alias"));'
@@ -94,8 +118,8 @@ drush entup -y
 drush updatedb -y
 drush cr
 
-echo "*** Uninstall devel_entity_updates"
-drush pm-uninstall devel_entity_updates
+#echo "*** Uninstall devel_entity_updates"
+#drush pm-uninstall devel_entity_updates
 
 echo
 echo "*** Upgrade Complete"
@@ -104,6 +128,13 @@ echo "*** drush pm-security"
 drush pm-security
 echo "**** composer outdated 'drupal/*'  AFTER"
 phpm /usr/bin/composer outdated "drupal/*"
+
+echo "**** Install these additional modules"
+echo ""
+echo 
+
+phpm /usr/bin/composer require drupal/easy_install
+drush pm-enable easy_install -y
 
 echo "*** drush updatedb-status"
 
