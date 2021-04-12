@@ -4,6 +4,15 @@ shopt -s expand_aliases
 
 composer --version
 
+echo "STEP 5: Remove composer and install composer 2.0.12"
+yum remove composer -y
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php --filename=composer --install-dir=/usr/bin
+php -r "unlink('composer-setup.php');"
+rm composer-setup.php
+
+composer --version
 
 alias phpm="php -d memory_limit=-1"
 #alias composerm="/usr/bin/composer"
@@ -106,7 +115,7 @@ drush entup -y
 drush updatedb -y
 drush cr
 
-phpm /usr/bin/composer require drupal/ldap:^4 drupal:ldap_servers:^4
+phpm /usr/bin/composer require drupal/ldap:^4 drupal/ldap_servers:^4
 drush entup -y
 drush updatedb -y
 drush cr
@@ -129,6 +138,11 @@ drush cr
 
 #echo "*** Uninstall devel_entity_updates"
 #drush pm-uninstall devel_entity_updates
+echo "**** Install these additional modules"
+echo ""
+echo "easy_install"
+phpm /usr/bin/composer require drupal/easy_install
+drush pm-enable easy_install -y
 
 echo
 echo "*** Upgrade Complete"
@@ -138,12 +152,6 @@ drush pm-security
 echo "**** composer outdated 'drupal/*'  AFTER"
 phpm /usr/bin/composer outdated "drupal/*"
 
-echo "**** Install these additional modules"
-echo ""
-echo 
-
-phpm /usr/bin/composer require drupal/easy_install
-drush pm-enable easy_install -y
 
 echo "*** drush updatedb-status"
 
