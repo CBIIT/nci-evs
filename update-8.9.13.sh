@@ -61,8 +61,11 @@ drush php-eval "\Drupal::keyValue('system.schema')->delete('migrate_plus');"
 echo "*** Uninstall Migrate"
 drush pm-uninstall migrate
 
-echo "*** Missing Memory Module Fixer"
-drush pm-uninstall module_missing_message_fixer
+#echo "*** Missing Memory Module Fixer"
+#drush pm-uninstall module_missing_message_fixer
+
+echo "*** Uninstall ldap_help"
+drush pm-uninstall ldap_help
 
 #drush ev "\Drupal::service('config.manager')->uninstall('module', 'migrate_plus');"
 
@@ -98,12 +101,17 @@ drush cr
 
 # NEW Modules
 
-phpm /usr/bin/composer require drush/drush:^10 drupal/drupalmoduleupgrader drupal/config_filter drupal/config_split
+phpm /usr/bin/composer require drush/drush:^10 drupal/drupalmoduleupgrader drupal/config_filter
 drush entup -y
 drush updatedb -y
 drush cr
 
 phpm /usr/bin/composer require drupal/ldap:^4 drupal:ldap_servers:^4
+drush entup -y
+drush updatedb -y
+drush cr
+
+phpm /usr/bin/composer require drush/drush:^10
 drush entup -y
 drush updatedb -y
 drush cr
@@ -142,6 +150,8 @@ echo "*** drush updatedb-status"
 drush updatedb-status
 
 drush status
+/usr/bin/composer --version
+drush --version
 php -v 
 httpd -v 
 
