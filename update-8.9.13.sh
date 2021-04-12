@@ -4,15 +4,16 @@ shopt -s expand_aliases
 
 composer --version
 
-echo "STEP 5: Remove composer and install composer 2.0.12"
-yum remove composer -y
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-php composer-setup.php --filename=composer --install-dir=/usr/bin
-php -r "unlink('composer-setup.php');"
-rm composer-setup.php
+# Too Early to start using Composer 2.0.  Too many packages don't use Composer 2.0 and the upgrade chokes and fails.  Skip this install for now.
+#echo "STEP 0: Remove composer and install composer 2.0.12"
+#yum remove composer -y
+#php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+#php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+#php composer-setup.php --filename=composer --install-dir=/usr/bin
+#php -r "unlink('composer-setup.php');"
+#rm composer-setup.php
 
-composer --version
+#composer --version
 
 alias phpm="php -d memory_limit=-1"
 #alias composerm="/usr/bin/composer"
