@@ -90,7 +90,8 @@ drush updatedb -y
 drush cr
 
 echo "*** STEP 4: Update some other modules stuck"
-phpm /usr/bin/composer require drupal/devel:^4 drupal/backup_migrate:^5 drupal/imce:^5 drupal/imce:^2 drupal/admin_toolbar:^3 drupal/ldap:^4 drupal:ldap_servers:^4 drupal/bootstrap_barrio:^5
+phpm /usr/bin/composer require drupal/devel:^4 drupal/backup_migrate:^5 drupal/imce:^2 drupal/admin_toolbar:^3 drupal/ldap:^4 drupal/ldap_servers:^4
+phpm /usr/bin/composer require drupal/bootstrap_barrio:^5.5@beta twbs/bootstrap:^5
 drush entup -y
 drush updatedb -y
 drush cr
