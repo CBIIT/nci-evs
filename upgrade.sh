@@ -4,3 +4,5 @@ composer remove drupal/console drupal/module_missing_message_fixer drupal/backup
 composer require drupal/admin_toolbar:^2.5 drupal/ctools:^3.7 drupal/imce:^2.4 drupal/ldap_servers:^4.3 drupal/ldap:^4.3 drupal/ldap_query:^4.3 drupal/devel:^4.0  drush/drush:^10.0.0 drupal/core-recommended:^9.0.0 --no-update
 composer remove --dev webflo/drupal-core-require-dev --no-update
 composer update
+
+drush updb -y
