@@ -4,6 +4,10 @@ global-styling-nci:
       css/navbar.css: {}
       css/cancer.css: {}
       css/style.css: {}
+    theme:
+      css/navbar.css: {}
+      css/cancer.css: {}
+      css/style.css: {}      
 global-styling:
   version: VERSION
   js:
@@ -36,9 +40,3 @@ color.preview:
     color/preview.js: {}
   dependencies:
     - color/drupal.color
-global-styling:
-  css:
-    theme:
-      css/navbar.css: {}
-      css/cancer.css: {}
-      css/style.css: {}
