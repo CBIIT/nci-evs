@@ -3,11 +3,7 @@ global-styling-nci:
     theme:
       css/navbar.css: {}
       css/cancer.css: {}
-      css/style.css: {}
-    theme:
-      css/navbar.css: {}
-      css/cancer.css: {}
-      css/style.css: {}      
+      css/style.css: {}  
 global-styling:
   version: VERSION
   js:
@@ -17,6 +13,10 @@ global-styling:
     component:
       css/style.css: {}
       css/colors.css: {}
+    theme:
+      css/navbar.css: {}
+      css/cancer.css: {}
+      css/style.css: {}      
 bootstrap:
   js:
     /libraries/popper/popper.min.js: {}
