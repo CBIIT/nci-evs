@@ -3,7 +3,7 @@ global-styling-nci:
     theme:
       css/navbar.css: {}
       css/cancer.css: {}
-      css/style.css: {}
+      css/style.css: {}  
 global-styling:
   version: VERSION
   js:
