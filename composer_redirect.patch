@@ -1,0 +1,14 @@
+--- composer.json       2022-09-26 16:47:51.926651070 +0000
++++ composer.json2      2022-09-26 16:42:35.331760784 +0000
+@@ -79,6 +79,11 @@
+         ]
+     },
+     "extra": {
++       "patches": {
++               "drupal/redirect_after_login": {
++               "Patch to fix login issue with redirect_after_login module": "redirect_after_login.patch"
++               }
++       },
+         "composer-exit-on-patch-failure": true,
+         "patchLevel": {
+             "drupal/core": "-p2"
