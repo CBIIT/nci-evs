@@ -6,7 +6,7 @@ composer require drupal/admin_toolbar:^2.5 drupal/imce:^2.4 --no-update
 composer update
 composer remove --dev webflo/drupal-core-require-dev --no-update
 composer remove drupal/ldap drupal/devel drupal/console drupal/core webflo/drupal-finder drupal-composer/drupal-scaffold --no-update
-composer require cweagans/composer-patches drupal/core-recommended:^9 drupal/module_missing_message_fixer drupal/authorization drush/drush:^10.0.0 drupal/backup_migrate drupal/core-composer-scaffold:^9 drupal/core-project-message:^9 --update-with-dependencies --no-update
+composer require drupal/ldap cweagans/composer-patches drupal/core-recommended:^9 drupal/module_missing_message_fixer drush/drush:^10.0.0 drupal/backup_migrate drupal/core-composer-scaffold:^9 drupal/core-project-message:^9 --update-with-dependencies --no-update
 composer update
 patch -u composer.json -i composer_redirect.patch
 composer install
