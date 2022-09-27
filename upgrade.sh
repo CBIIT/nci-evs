@@ -18,6 +18,6 @@ echo "* Enable ldap_authentication"
 drush pm-enable ldap_authentication -y
 drush cset ldap_authentication.settings sids.nci nci -y
 drush updb -y
-drush updatedb --entities -y
+drush updatedb --entity-updates -y
 drush cr
 
