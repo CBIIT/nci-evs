@@ -4,7 +4,7 @@ drush pmu ldap_user ldap_help ldap_servers ldap_query ldap_authorization ldap_au
 composer remove drupal/backup_migrate drupal/ldap drupal/module_missing_message_fixer --no-update
 composer require drupal/admin_toolbar:^2.5 drupal/imce:^2.4 --no-update
 composer update
-drush updatedb --entities -y
+drush updatedb --entity-updates -y
 drush updb -y
 composer remove --dev webflo/drupal-core-require-dev --no-update
 composer remove drupal/ldap drupal/devel drupal/console drupal/core webflo/drupal-finder drupal-composer/drupal-scaffold --no-update
