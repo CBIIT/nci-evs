@@ -1,6 +1,6 @@
 #!/bin/bash
 drush sql-query "UPDATE users_field_data SET ldap_user_current_dn=NULL,ldap_user_last_checked=NULL,ldap_user_ldap_exclude=NULL;"
-drush pmu ldap_user ldap_help ldap_servers ldap_query ldap_authorization ldap_authentication ldap
+drush pmu ldap_help ldap_query ldap_authorization ldap_authentication ldap backup_migrate module_missing_message_fixer
 composer remove drupal/backup_migrate drupal/ldap drupal/module_missing_message_fixer --no-update
 composer require drupal/admin_toolbar:^2.5 drupal/imce:^2.4 --no-update
 composer update
@@ -12,8 +12,14 @@ composer require drupal/ldap cweagans/composer-patches drupal/core-recommended:^
 composer update
 patch -u composer.json -i composer_redirect.patch
 composer install
-drush cset ldap_servers.server.nci address $ldap_address -y
+drush updatedb --entity-updates -y
+drush updb -y
+ldap_address_no_ldaps=$(echo "$ldap_address"  | sed -r 's/ldaps:\/\///g')
+drush cset ldap_servers.server.nci address $ldap_address_no_ldaps -y
 drush cset ldap_servers.server.nci port $ldap_port -y
+drush cset ldap_servers.server.nci encryption ssl -y
+drush cset ldap_authentication.settings skipAdministrators 0 -y
+
 echo "* Enable ldap_authentication"
 drush pm-enable ldap_authentication -y
 drush cset ldap_authentication.settings sids.nci nci -y
