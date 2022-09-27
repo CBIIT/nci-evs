@@ -18,11 +18,11 @@ ldap_address_no_ldaps=$(echo "$ldap_address"  | sed -r 's/ldaps:\/\///g')
 drush cset ldap_servers.server.nci address $ldap_address_no_ldaps -y
 drush cset ldap_servers.server.nci port $ldap_port -y
 drush cset ldap_servers.server.nci encryption ssl -y
-drush cset ldap_authentication.settings skipAdministrators 0 -y
 
 echo "* Enable ldap_authentication"
 drush pm-enable ldap_authentication -y
 drush cset ldap_authentication.settings sids.nci nci -y
+drush cset ldap_authentication.settings skipAdministrators 0 -y
 drush updb -y
 drush updatedb --entity-updates -y
 drush cr
