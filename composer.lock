@@ -2326,7 +2326,7 @@
         },
         {
             "name": "drupal/core",
-            "version": "9.4.6",
+            "version": "9.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
@@ -2490,7 +2490,7 @@
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "9.4.6",
+            "version": "9.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2537,7 +2537,7 @@
         },
         {
             "name": "drupal/core-project-message",
-            "version": "9.4.6",
+            "version": "9.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-project-message.git",
@@ -2575,7 +2575,7 @@
         },
         {
             "name": "drupal/core-recommended",
-            "version": "9.4.6",
+            "version": "9.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
@@ -2593,7 +2593,7 @@
                 "doctrine/annotations": "~1.13.2",
                 "doctrine/lexer": "~1.2.3",
                 "doctrine/reflection": "~1.2.3",
-                "drupal/core": "9.4.6",
+                "drupal/core": "9.4.7",
                 "egulias/email-validator": "~3.2",
                 "guzzlehttp/guzzle": "~6.5.8",
                 "guzzlehttp/promises": "~1.5.1",
