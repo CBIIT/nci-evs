@@ -8,8 +8,19 @@ drush updatedb --entity-updates -y
 drush updb -y
 composer remove --dev webflo/drupal-core-require-dev --no-update
 composer remove drupal/ldap drupal/devel drupal/console drupal/core webflo/drupal-finder drupal-composer/drupal-scaffold --no-update
-composer require drupal/admin_toolbar:^3.2 drupal/ldap cweagans/composer-patches drupal/core-recommended:^9 drupal/module_missing_message_fixer drush/drush:^10.0.0 drupal/backup_migrate drupal/core-composer-scaffold:^9 drupal/core-project-message:^9 --update-with-dependencies --no-update
+composer require drupal/ldap cweagans/composer-patches drupal/core-recommended:^9 drupal/module_missing_message_fixer drush/drush:^10.0.0 drupal/backup_migrate drupal/core-composer-scaffold:^9 drupal/core-project-message:^9 --update-with-dependencies --no-update
+composer require 'drupal/devel_entity_updates:^3' drupal/admin_toolbar:^3 drupal/diff:^1.1 drupal/google_analytics
 composer update
+
+#Added some fixes to entity missing
+drush en devel_entity_updates -y
+drush entity-updates -y
+drush php-eval "\Drupal::keyValue('system.schema')->delete('google_analytics');"
+drush sql-query "delete config where name = 'google_analytics.settings';"
+drush en google_analytics -y
+
+drush updatedb-status
+
 patch -u composer.json -i composer_redirect.patch
 composer install
 drush updatedb --entity-updates -y
@@ -26,3 +37,4 @@ drush cset ldap_authentication.settings skipAdministrators 0 -y
 drush updb -y
 drush updatedb --entity-updates -y
 drush cr
+
