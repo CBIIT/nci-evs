@@ -1,0 +1,43 @@
+version: '3.9'
+services:
+  drupal-server:
+    container_name: drupal-server
+    image: alpine
+    ports:
+     - 8080:80
+    environment:
+      hash_salt: k_7ame-GnEyWUYWKFJWIL0EjcwIZnf6UjVvT3YNgTxM6Rb2qUWNP8pOzxQ_Q29OtENOVGzMnHA
+      repository: https://github.com/cbiit/nci-evs
+      database: drupal
+      username: mysql
+      password: 1234
+      host: mysql
+      port: 3306
+      namespace:
+      driver: mysql
+      ldap_port: 636
+      ldap_address: ldaps://localhost
+      load_database: "true"
+      local_build: "true"
+      CONTAINER_BRANCH_OR_TAG: alpine
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: always
+  mysql:
+    container_name: drupal-db
+    image: mysql:5.7.39
+    ports:
+     - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: 1234
+      MYSQL_DATABASE: drupal
+    command: [--max-allowed-packet=67108864]
+    healthcheck:
+      test: "mysqladmin -umysql -p1234 ping"
+      interval: 10s
+      timeout: 5s
+      retries: 30
+    restart: always
