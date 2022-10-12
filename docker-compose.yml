@@ -7,7 +7,7 @@ services:
      - 8080:80
     environment:
       hash_salt: k_7ame-GnEyWUYWKFJWIL0EjcwIZnf6UjVvT3YNgTxM6Rb2qUWNP8pOzxQ_Q29OtENOVGzMnHA
-      #repository: https://github.com/cbiit/nci-evs
+      repository: https://github.com/cbiit/nci-evs
       sitename: evs
       database: drupal
       username: mysql
