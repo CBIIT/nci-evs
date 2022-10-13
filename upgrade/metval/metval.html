@@ -1,30 +1,17 @@
 <div class="body-metval">
     <p>NCI Metathesaurus (NCIm) is built on top of a subset of the NLM's UMLS Metathesaurus, use of which is restricted under the UMLS license agreement. Your UMLS api key will be validated in this page prior to downloading the NCIm RRF data files. To download other files associated with the NCIm (e.g. documentation, MetamorphoSys), or if you do not currently have a UMLS account or license, please return to the main <a href="../metathesaurus-downloads" target="_parent">NCI Metathesaurus Downloads</a> page and follow the links there.</p>
     
-    <p>
-        <span id="download_section" style="display:none">
-            <a class="disabled" href="#" id="download_meta">
-                <b>Metathesaurus.RRF.zip</b>
-            </a><br />
-        </span>
+    <p><span id="download_section"><a class="disabled" href="#" id="download_meta"><b>Metathesaurus.RRF.zip</b> </a></span><br />
     Please <a class="button" href="#" id="EnterButton">Enter</a> your api key to validate your UMLS account and enable the download link above. If your account does not validate correctly, please request a new one from the NLM.</p>
     
     <p><b>Important.</b> Please be advised that if you validate your api key and then navigate away from this page without having downloaded the NCI Metathesaurus RRF files, you might need to revalidate your UMLS credentials again before you can download the files.</p>
     
-    <div class="popup">
-    <form id="loginFrm" name="loginFrm" style="display:none;" onsubmit="return false;">
-    <table style="width:420px;">
-        <tbody>
-            <tr>
-                <td style="background-color:#fff !important;"><label for="apikey">API Key</label> <input id="apikey" name="apikey" type="text" /></td>
-                <td style="background-color:#fff !important">
-                    <button id="loginSubmit" class="btn btn-primary btn-sm submit" style="margin-right:10px;">Submit</button>
-                    <button id="close" class="btn btn-default btn-sm submit" type="button">Close</button></td>
-            </tr>
-        </tbody>
-    </table>
-    <!-- <input class="close" id="loginSubmit" name="loginSubmit" style="padding-right:3em" type="button"
-                            value="Submit" />
-                        <input class="close" style="padding-right:3em" type="button" value="Close" /> --></form>
+    <div id="popup">
+        <form id="loginFrm" name="loginFrm" onsubmit="return false;">
+            <label for="apikey">API Key</label>
+            <input id="apikey" name="apikey" size="40" type="text" />
+            <button class="btn btn-default btn-primary btn-sm submit" id="loginSubmit" type="button">Submit</button>
+            <button class="btn btn-sm submit" id="close" type="button">Close</button>
+        </form>
     </div>
-    </div>
+</div>

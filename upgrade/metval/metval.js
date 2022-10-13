@@ -19,35 +19,35 @@ function getDecodedUrl(results) {
   //console.log(decrypted.toString(CryptoJS.enc.Utf8));
 
   console.log("Metval Load");
-      console.log(getSecret(results));
+      //console.log(getSecret(results));
 
       var encryptedUrl  = "U2FsdGVkX1+WMXTJFhasqh7eOjTQSkuTRAgiXeEGCWjLSAUmGaKxyfFQDyopkZV8VPegMSKJ8hnRpcX7cREPi16qHdaRvg2LcVqdQQ/45uA";
       var decrypted = CryptoJS.AES.decrypt(encryptedUrl, getSecret(results));
       var hiddenUrl = decrypted.toString(CryptoJS.enc.Utf8);
-      console.log(hiddenUrl);
+      //console.log(hiddenUrl);
       
       return hiddenUrl;
 }
 
 (function( $ ) {
-    $("#EnterButton").onclick(function (e){
-        $("#loginFrm").show();
+    $("#EnterButton").click(function (e){
+        $("#popup").show();
     });
-
+    $("#close").click(function (e){
+        $("#popup").hide();
+    });
     $(document).ready(function() {
 
 		  var metathesaurusFile = null;
+		  /*
 			$(document).on('click','.button',function(e) {
 				//handler code here
         //console.log("Click on Overlay");
 
         //$("#block-nci-barrio-content").append('<div class="overlay"></div>');
-				$(".popup").show();
 
-				$("#close").click(function(e) {
-					$("#loginFrm").hide()
-				});
 			});
+			*/
 			
             $("#loginSubmit").click(function(e) {
             //alert($("input[name=apikey]").val());
@@ -62,7 +62,7 @@ function getDecodedUrl(results) {
                         $('#download_meta').removeClass('disabled')
                     alert("UMLS Login successful.  Click on the Metathesaurus.RRF.zip file to download.");
                     metathesaurusFile = getDecodedUrl(result);
-                    console.log('metathesaurusFile = ' +metathesaurusFile);
+                    //console.log('metathesaurusFile = ' +metathesaurusFile);
                 }
 			});
 			});
@@ -72,8 +72,8 @@ function getDecodedUrl(results) {
 				  if ($(this).hasClass('disabled')) {
 					  return false;
 				  } else{
-				    console.log('Reroute to '+metathesaurusFile)
-				    alert("reroute to : "+metathesaurusFile);
+				    //console.log('Reroute to '+metathesaurusFile)
+				    //alert("reroute to : "+metathesaurusFile);
 					  document.location.href = metathesaurusFile;
                       //document.open("https://"+document.location+"/"+metathesaurusFile, "_blank");
 
