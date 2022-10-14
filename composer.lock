@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a86e9dc59009d134165bb928df1a8bf3",
+    "content-hash": "4140a6727292b96c8db2ad65e110c587",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -4336,6 +4336,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Patch to fix login issue with redirect_after_login module": "https://www.drupal.org/files/issues/2022-07-26/redirect_after_login-3214949-107.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
