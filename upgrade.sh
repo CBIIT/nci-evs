@@ -8,7 +8,8 @@ drush updatedb --entity-updates -y
 drush updb -y
 composer remove --dev webflo/drupal-core-require-dev --no-update
 composer remove drupal/ldap drupal/devel drupal/console drupal/core webflo/drupal-finder drupal-composer/drupal-scaffold --no-update
-composer require drupal/ldap cweagans/composer-patches drupal/core-recommended:^9 drupal/module_missing_message_fixer drush/drush:^10.0.0 drupal/backup_migrate drupal/core-composer-scaffold:^9 drupal/core-project-message:^9 --update-with-dependencies --no-update
+composer require drupal/ldap cweagans/composer-patches drupal/core-recommended:^9 drupal/module_missing_message_fixer drush/drush:^10.0.0 drupal/backup_migrate drupal/core-composer-scaffold:^9 drupal/core-project-message:^9 --update-with-dependencies -
+-no-update
 composer update
 composer require drupal/easy_install 'drupal/devel_entity_updates:^3' drupal/admin_toolbar:^3 drupal/diff:^1.1 drupal/google_analytics
 composer update
@@ -27,8 +28,12 @@ composer install
 drush updatedb --entity-updates -y
 drush updb -y
 ldap_address_no_ldaps=$(echo "$ldap_address"  | sed -r 's/ldaps:\/\///g')
-
-echo "* Enable ldap_authentication"
+drush pm-enable ldap_authentication ldap_servers ldap_user -y
+drush cset ldap_servers.server.nci address $ldap_address_no_ldaps -y
+drush cset ldap_servers.server.nci port $ldap_port -y
+drush cset ldap_servers.server.nci encryption ssl -y
+drush cset ldap_authentication.settings sids.nci nci -y
+drush cset ldap_authentication.settings skipAdministrators 0 -y
 drush updb -y
 drush updatedb --entity-updates -y
 drush cr
