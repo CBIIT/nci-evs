@@ -27,7 +27,7 @@
         "drupal/config_sync": "^2.0@beta",
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",
-        "drupal/core-recommended": "^9",
+        "drupal/core-recommended": "^9.5.5",
         "drupal/devel_entity_updates": "^3",
         "drupal/diff": "^1.1",
         "drupal/easy_install": "^10.5",
