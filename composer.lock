@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "af28d260d8a84c7d779edb555423e3f7",
+    "content-hash": "21d381dfa2096665444c587017326cd5",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -3823,6 +3823,51 @@
             "homepage": "https://www.drupal.org/project/ldap",
             "support": {
                 "source": "https://git.drupalcode.org/project/ldap"
+            }
+        },
+        {
+            "name": "drupal/message_banner",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/message_banner.git",
+                "reference": "2.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/message_banner-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "c4ea7bf14d391b2f07243f8346a27be8693ae900"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0",
+                    "datestamp": "1694507278",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Sophie Shanahan-Kluth",
+                    "homepage": "https://www.drupal.org/u/sophie.sk"
+                }
+            ],
+            "description": "Display a message banner to site visitors.",
+            "homepage": "http://drupal.org/project/message_banner",
+            "support": {
+                "source": "https://git.drupalcode.org/project/message_banner",
+                "issues": "https://www.drupal.org/project/issues/message_banner"
             }
         },
         {
@@ -9631,5 +9676,5 @@
         "php": ">=5.6"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
