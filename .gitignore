@@ -36,3 +36,14 @@
 /.env
 
 .DS_Store
+/.csslintrc
+/.eslintignore
+/.eslintrc.json
+/.ht.router.php
+/INSTALL.txt
+/autoload.php
+/example.gitignore
+/index.php
+/robots.txt
+/update.php
+/web.config
