@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db1cc5c891319c7af73983e4a4ae3ee2",
+    "content-hash": "679de28843303445c919815779c41191",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -3794,6 +3794,58 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/extlink",
                 "issues": "https://www.drupal.org/project/issues/extlink"
+            }
+        },
+        {
+            "name": "drupal/filebrowser",
+            "version": "3.1.0-rc3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/filebrowser.git",
+                "reference": "3.1.0-rc3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/filebrowser-3.1.0-rc3.zip",
+                "reference": "3.1.0-rc3",
+                "shasum": "616f70b91bcf7ce252a1bfc0a0bb12ee2e3f451e"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.1.0-rc3",
+                    "datestamp": "1697358708",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "RC releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "clivesj",
+                    "homepage": "https://www.drupal.org/user/129340"
+                },
+                {
+                    "name": "harshkundaliya",
+                    "homepage": "https://www.drupal.org/user/3619314"
+                },
+                {
+                    "name": "kuhikar",
+                    "homepage": "https://www.drupal.org/user/3241981"
+                }
+            ],
+            "description": "Provides FTP-like browsing capabilities.",
+            "homepage": "https://www.drupal.org/project/filebrowser",
+            "support": {
+                "source": "https://git.drupalcode.org/project/filebrowser"
             }
         },
         {
@@ -10637,6 +10689,7 @@
     "stability-flags": {
         "drupal/config_sync": 15,
         "drupal/exclude_node_title": 10,
+        "drupal/filebrowser": 5,
         "drupal/xmlsitemap": 15
     },
     "prefer-stable": true,
