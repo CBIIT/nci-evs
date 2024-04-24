@@ -9,6 +9,8 @@ $(document).ready(function () {
         if (iframeContent.length > 0) {
             let pathname = window.location.pathname;
             let tdElements = $('td.indexcolname');
+            let thElements = $('th a');
+
             tdElements.each(function (index) {
                 let anchorTag = $(this).find('a');
                 let currentHref = anchorTag.attr('href');
@@ -18,6 +20,16 @@ $(document).ready(function () {
                 anchorTag.attr('target', '_top');
         
             });            
+
+            thElements.each(function (index, e) {
+                console.log(index,e); 
+                let anchorTag = $(e);       
+                let currentHref = anchorTag.attr('href');  
+                anchorTag.attr('href', window.location.pathname + currentHref);
+                anchorTag.attr('target', '_top');
+                                                                
+            });      
+
             clearInterval(checkIframeInterval); // Stop checking
             console.log('Found .content div in iframe');
             loadIframeContent();
