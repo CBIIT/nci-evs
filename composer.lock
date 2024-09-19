@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c93c4975954fb38e975b266fd4b7294e",
+    "content-hash": "df663c79944fba89673bd8f2c6b6d1e0",
     "packages": [
         {
             "name": "ajgl/breakpoint-twig-extension",
@@ -1748,6 +1748,54 @@
                 }
             ],
             "time": "2024-03-12T14:54:36+00:00"
+        },
+        {
+            "name": "drupal/add_to_head",
+            "version": "1.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/add_to_head.git",
+                "reference": "8.x-1.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/add_to_head-8.x-1.0-beta1.zip",
+                "reference": "8.x-1.0-beta1",
+                "shasum": "409fe9bca25ce22a3bcb7e0a947b8bc193b49c1b"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-beta1",
+                    "datestamp": "1672935098",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "baikho",
+                    "homepage": "https://www.drupal.org/user/2727459"
+                },
+                {
+                    "name": "nicholasThompson",
+                    "homepage": "https://www.drupal.org/user/59351"
+                }
+            ],
+            "description": "Allows arbitrary insertion of code into the head of specific pages",
+            "homepage": "https://www.drupal.org/project/add_to_head",
+            "support": {
+                "source": "https://git.drupalcode.org/project/add_to_head"
+            }
         },
         {
             "name": "drupal/admin_toolbar",
@@ -10792,6 +10840,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/add_to_head": 10,
         "drupal/config_sync": 15,
         "drupal/easy_install_d10": 20,
         "drupal/exclude_node_title": 10,
