@@ -35,7 +35,7 @@
         "drupal/core-recommended": "10.4.7",
         "drupal/devel": "^5.3",
         "drupal/devel_entity_updates": "^4.1",
-        "drupal/diff": "^1.1",
+        "drupal/diff": "^1.9",
         "drupal/easy_install_d10": "^10.0@dev",
         "drupal/exclude_node_title": "^1.0@beta",
         "drupal/extlink": "^2.0",
